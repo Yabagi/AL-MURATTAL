@@ -1,0 +1,27 @@
+{
+  "name": "Al-Murattal Institute - Global Directory of Qur'an Schools",
+  "short_name": "Al-Murattal",
+  "description": "Discover, connect, and support Islamic educational institutions worldwide",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/al-murattal-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/al-murattal-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "productivity", "social"],
+  "lang": "en",
+  "dir": "ltr"
+}
