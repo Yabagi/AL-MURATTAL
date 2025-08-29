@@ -1,0 +1,37 @@
+// Paystack_API.js
+
+import axios from "axios";
+
+// ✅ Initialize Paystack with your secret key (from Vercel env)
+const paystack = axios.create({
+  baseURL: "https://api.paystack.co",
+  headers: {
+    Authorization: Bearer ${process.env.PAYSTACK_SECRET_KEY},
+    "Content-Type": "application/json",
+  },
+});
+
+// ✅ Function to start a payment
+export const initializePayment = async (email, amount) => {
+  try {
+    const response = await paystack.post("/transaction/initialize", {
+      email,
+      amount: amount * 100, // Paystack expects amount in kobo
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Paystack init error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+// ✅ Function to verify a payment after user pays
+export const verifyPayment = async (reference) => {
+  try {
+    const response = await paystack.get(/transaction/verify/${reference});
+    return response.data;
+  } catch (error) {
+    console.error("Paystack verify error:", error.response?.data || error.message);
+    throw error;
+  }
+};
